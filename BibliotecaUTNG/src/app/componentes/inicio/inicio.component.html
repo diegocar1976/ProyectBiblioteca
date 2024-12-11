@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../contenido/accesibilidad.js"></script>
+    <title>Inicio</title>
+    <style>
+
+        .container-fluid {
+            display: flex;
+        }
+
+        #barraLateral {
+            background-color: #00A887;
+            color: white;
+            height: 100vh;
+            width: 30vh;
+            overflow-x: hidden;
+            transition: 0.5s;
+            position: absolute;
+        }
+
+        #contenidoPrincipal {
+            margin-left: 30vh;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        #listaBotones button i {
+            color: white;
+        }
+
+        #listaBotones button.active {
+            background-color: #2c3e50;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 17px;
+            margin-left: 17px;
+        }
+         /* Estilos para la ventana flotante */
+ .floating-social-icons {
+        position: fixed;
+        top: 85%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+    .floating-social-icons a {
+        display: block;
+        margin-bottom: 10px;
+        text-decoration: none;
+    }
+    .fab.fa-facebook {
+        color: #3b5998; /* Azul de Facebook */
+    }
+    .fab.fa-instagram {
+        color: #e4405f; /* Rosa de Instagram */
+    }
+    .fab.fa-twitter {
+        color: #1da1f2; /* Azul de Twitter */
+    }
+    .fas.fa-phone-alt {
+        color: #007bff; /* Azul para el teléfono */
+    }
+    .fab.fa-youtube {
+        color: #c4302b; /* Rojo de YouTube */
+    }
+    .fas.fa-graduation-cap {
+        color: #2c2c2c; /* Gris oscuro para la educación */
+    }
+    /* Cambiar color al hacer hover */
+    .floating-social-icons a:hover {
+        opacity: 0.7;
+          color: #0056b3;
+    }
+
+    .decoration{
+        text-decoration: none;
+    }
+
+    @media (max-width: 767px) {
+        .decoration p {
+            display: none;
+        }
+    }
+
+    .menu{
+        width: 30%;
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu arriba -->
+    <nav id="menu" class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A4DBD;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html"><img src="https://www.utng.edu.mx/assets/principal/logoutng.webp" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link opcion" id="opcion5" style="text-decoration: none; color: white;" href="/servicios">
+                            <i class="fas fa-sign-in-alt"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link opcion" id="opcion5" style="text-decoration: none; color: white;" href="/login">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link opcion" id="opcion5" style="text-decoration: none; color: white;" href="/registrate">
+                            <i class="fas fa-user-plus"></i> Crear Cuenta
+                        </a>
+                    </li>
+                </ul>
+                <app-search></app-search>
+
+            <!-- Barra de búsqueda -->
+            </div>
+        </div>
+    </nav>
+    
+
+    
+
+    <div id="carouselE" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1"  aria-current="true"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2"  aria-current="true"
+                aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="./assets/B_1.jpg" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h5 style="text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 300;">Bienvenido/a a nuestra biblioteca UTNG</h5>
+                    <a href="https://www.utng.edu.mx/npf" class="btn btn-primary mt-3">Mas información</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                    <img src="./assets/B_2.jpg" class="d-block w-100" alt="">
+                    <div class="carousel-caption">
+                    <h5 style="text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 300;">¿Que encontraras aquí?</h5>
+                    <a href="https://www.utng.edu.mx/npf" class="btn btn-primary mt-3">Mas información</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                        <img src="./assets/B_3.jpg" class="d-block w-100" alt="">
+                        <div class="carousel-caption">
+                            <h5 style="text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 300;">Nuestros Ejemplares</h5>
+                            <a href="https://www.utng.edu.mx/npf" class="btn btn-primary mt-3">Mas información</a>
+                        </div>
+                    </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button"
+            data-bs-target="#carouselE"
+            data-bs-slide="prev"
+        >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#carouselE"
+            data-bs-slide="next"
+        >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+    <div class="floating-social-icons">
+        <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/utngdoloreshidalgo_?igsh=dWRtbWhtdnUza3Zx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://twitter.com/UTNGDolores" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="tel:+ +52 (418) 182 5500"><i class="fas fa-phone-alt"></i> Llamar</a>
+        <a href="https://www.youtube.com/channel/UC5aD8RBROQYeDSIX54hjwBw" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.utng.edu.mx" target="_blank"><i class="fas fa-graduation-cap"></i> Educación</a>
+    </div>
+
+    <!-- Iconos de Libros -->
+<div class="container mt-5">
+    <div class="row text-center justify-content-center">
+        <div class="col-2">
+            <a routerLink="/nuestrosEjemplares" class="decoration">
+                <i class="fas fa-book-open fa-3x"></i>
+                <p>Nuestros Ejemplares</p>
+            </a>
+        </div>
+        <div class="col-2">
+            <a routerLink="/categorias" class="decoration">
+                <i class="fas fa-book fa-3x"></i>
+                <p>Categorias</p>
+            </a>
+        </div>
+        <div class="col-2">
+            <a routerLink="/disponibilidad" class="decoration">
+                <i class="fas fa-book-reader fa-3x"></i>
+                <p>Disponiblidad</p>
+            </a>
+        </div>
+        <div class="col-2">
+            <a routerLink="/apartados" class="decoration">
+                <i class="fas fa-scroll fa-3x"></i>
+                <p>Apartados</p>
+            </a>
+        </div>
+        <div class="col-2">
+            <a routerLink="/solicitudes" class="decoration">
+                <i class="fas fa-book-medical fa-3x"></i>
+                <p>Solicitudes</p>
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <section class="about section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-12">
+                            <img src="./assets/P_1.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                            <div class="about-text text-black">
+                                <h2 style="color: rgb(0, 0, 0);">Nuestra Politica de Calidad</h2>
+                                <p>
+                                    La Universidad Tecnológica del Norte de Guanajuato se compromete con sus alumnos y la sociedad 
+                                    a ofrecer servicios educativos del nivel superior así como servicios de educación continua y 
+                                    tecnológicos con calidad, empleando de manera eficiente los recursos y aplicando la mejora 
+                                    continua en beneficio del desarrollo regional y ambiental previniendo la contaminación y 
+                                    apegándose a las disposiciones legales ambientales.
+                                </p>
+                                <a href="https://www.utng.edu.mx/npf" class="btn btn-primary">Mas información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <section class="about section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12 col-12 pe-lg-5 mt-md-5">
+                            <div class="about-text text-black">
+                                <h2 style="color: rgb(0, 0, 0);">Nuestra Visión</h2>
+                                <p>
+                                    En el 2026 la Universidad Tecnológica del Norte de Guanajuato será una institución de educación superior reconocida nacional e internacionalmente por 
+                                    formar egresados competitivos que se integran exitosamente al ámbito laboral, en los que resaltará su formación humana e integral, se contará con 
+                                    programas educativos de excelencia, pertinentes e incluyentes: en los que se promueve la investigación aplicada e innovación tecnológica a través de 
+                                    sus cuerpos académicos, se tendrá una fuerte vinculación con todos los sectores y se impulsará el emprendimiento y la competitividad, contribuyendo 
+                                    asi a la transformación de la educación en Guanajuato. Se consolidará el enfoque hacia la igualdad y no discriminación, al desarrollo sostenible y cuidado 
+                                    del ambiente; al respeto de los derechos humanos; a la promoción de la cultura de paz y no violencia; a la transparencia y rendición de cuentas en la gestión 
+                                    y administración de los recursos, utilizando para su implementación referentes estatales, nacionales e internacionales.
+                                </p>
+                            </div>
+                            <a href="https://www.utng.edu.mx/npf" class="btn btn-primary" style="margin-left: 1%;">Más información</a>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-12">
+                            <img src="./assets/P_2.jpg" class="img-fluid" alt="" style="margin-top: 90px;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <section class="about section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-12">
+                            <img src="./assets/P_3.jpg" class="img-fluid" alt="" style="margin-top: 90px;">
+                        </div>
+                        <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                            <div class="about-text text-black">
+                                <h2 style="color: rgb(0, 0, 0);">Nuestra Misión</h2>
+                                <p>
+                                    La Biblioteca de la Universidad Tecnológica del Norte de Guanajuato tiene como misión facilitar 
+                                    el acceso a la información, fomentar la investigación y promover el aprendizaje continuo en apoyo 
+                                    a la excelencia académica. Nos esforzamos por ofrecer recursos de alta calidad, servicios 
+                                    innovadores y un ambiente acogedor que inspire el descubrimiento intelectual y el desarrollo de 
+                                    habilidades críticas. Trabajamos en colaboración con la comunidad universitaria para cultivar el 
+                                    pensamiento crítico, la creatividad y el acceso equitativo a la información, contribuyendo así al 
+                                    crecimiento intelectual y al éxito educativo de nuestros estudiantes, profesores e investigadores."
+                                </p>
+                                <a href="https://www.utng.edu.mx/npf" class="btn btn-primary">Mas información</a>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <video controls class="w-100">
+                <source src="./assets/UTNG-VID.mkv" type="video/mp4">
+                Tu navegador no admite el elemento <code>video</code>.
+            </video>
+        </div>
+    </div>
+</div>
+
+<!-- Botón para ir al mapa del sitio usando routerLink -->
+
+<!--Pie de pagina-->
+
+<footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+    <br>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <a routerLink="/mapa-inicio" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+            </div>
+        </div>
+    </div>
+    <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+    <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+    <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+    <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+    <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+  </footer>
+
+     <!-- Barra de busqueda -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

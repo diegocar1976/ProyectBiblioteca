@@ -1,0 +1,88 @@
+body {
+    background-image: url(https://images.pexels.com/photos/2898170/pexels-photo-2898170.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop);
+    background-size: cover; /* Ajusta la imagen de fondo para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-position: center; /* Centra la imagen de fondo */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%; /* Ajusta el ancho máximo al 90% del ancho de la pantalla */
+    width: 400px; /* Establece un ancho máximo */
+    margin: auto; /* Centra el contenedor horizontalmente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-top: 1%; /* Aumenta la separación desde la parte superior */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px; /* Aumenta el margen inferior */
+    font-size: 36px; /* Reducir el tamaño del título para adaptarse mejor */
+    color: white;
+    margin-top: 5%; /* Ajustar el margen superior */
+}
+
+
+.formulario label {
+    font-weight: bold;
+    color: #333;
+}
+
+.formulario input,
+.formulario select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario button {
+    background-color: #046910;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    nav {
+        margin-top: 50px;
+    }
+
+    h1 {
+        margin-top: 100px;
+    }
+
+    nav {
+        margin-top: 50px; /* Ajusta el margen superior del elemento de migas de pan */
+        width: 90%; /* Reduzca ligeramente el ancho del elemento para adaptarse mejor a la pantalla */
+        margin-left: 5%; /* Mueve las migas de pan un poco más a la izquierda */
+        margin-right: auto; /* Centra horizontalmente el elemento */
+        text-align: center; /* Centra el texto horizontalmente */
+    }
+
+    .breadcrumb {
+        display: inline-block; /* Permite que el elemento se ajuste a su contenido */
+        margin-top: 10px; /* Baja las migas de pan */
+        margin-left: -15%;
+        text-align: center; /* Centra horizontalmente el elemento */
+        list-style: none; /* Quita los estilos de lista predeterminados */
+        padding: 0; /* Elimina el relleno predeterminado */
+        font-weight: bold;
+    }
+
+}

@@ -1,0 +1,112 @@
+body {
+  background-image: url(https://images.pexels.com/photos/2898170/pexels-photo-2898170.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop);
+  background-size: cover; /* Ajusta la imagen de fondo para cubrir toda la pantalla */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-position: center; /* Centra la imagen de fondo */
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+}
+
+h1{
+  margin-top: 12%;
+  margin-left: 33%;
+  color: white;
+}
+
+.barra{
+  border-radius: 20px; /* Puedes ajustar el valor según el radio de redondeo que desees */
+  padding: 10px; /* Ajusta el espacio interno del campo de entrada según tus necesidades */
+  font-size: 16px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  border: 1px solid #ccc;
+  width: 50%;
+  margin-left: 20%;
+  padding: 15px 15px 15px 50px;
+}
+
+.btnBuscar{
+  border-radius: 20px; /* Puedes ajustar el valor según el radio de redondeo que desees */
+  padding: 10px; /* Ajusta el espacio interno del campo de entrada según tus necesidades */
+  font-size: 16px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  border: 1px solid #ccc;
+  margin-left: 1%;
+  width: 8%;
+  background-color: #00A887;
+  color: white;
+}
+
+.fa-solid{
+  font-size: 20px;
+  position: relative;
+  left: 22.8%;
+}
+
+table{
+  text-align: center ;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+tr .fa-solid{
+  margin-right: 6%;
+}
+
+.table tbody td {
+  color: black;
+  text-align: center;
+}
+
+.table tbody th {
+  color: black;
+}
+
+.table thead th{
+  color: black;
+  text-align: center;
+}
+
+.prestamo {
+  background-color: green;
+}
+
+.por-vencer {
+  background-color: rgb(184, 184, 2);
+}
+
+.vencido {
+  background-color: red;
+}
+
+/* Media query para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+  h1 {
+      margin-top: 40%; /* Nuevo margen superior en dispositivos móviles */
+      margin-left: 0;
+      text-align: center;
+  }
+  .barra {
+      width: 80%; /* Nuevo ancho */
+      font-size: 18px; /* Aumentar el tamaño de la fuente */
+      padding: 12px; /* Ajustar el espacio interno */
+  }
+
+  .btnBuscar {
+      width: 30%; /* Nuevo ancho */
+  }
+  nav {
+    margin-top: 50px; /* Ajusta el margen superior del elemento de migas de pan */
+    width: 90%; /* Reduzca ligeramente el ancho del elemento para adaptarse mejor a la pantalla */
+    margin-left: 5%; /* Mueve las migas de pan un poco más a la izquierda */
+    margin-right: auto; /* Centra horizontalmente el elemento */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.breadcrumb {
+    display: inline-block; /* Permite que el elemento se ajuste a su contenido */
+    margin-top: 10px; /* Baja las migas de pan */
+    margin-left: -15%;
+    text-align: center; /* Centra horizontalmente el elemento */
+    list-style: none; /* Quita los estilos de lista predeterminados */
+    padding: 0; /* Elimina el relleno predeterminado */
+    font-weight: bold;
+}
+}

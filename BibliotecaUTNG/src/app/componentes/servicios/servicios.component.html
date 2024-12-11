@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios - Biblioteca UTNG</title>
+
+<style>
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin-top: 10%;
+}
+
+h1 {
+    text-align: center;
+    color: #2A4DBD;
+    margin-bottom: 20px;
+    font-size: 400%;
+    margin-top: 11  0px;
+}
+
+.service {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+}
+
+.service:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service h2 {
+    color: #00A887;
+    display: flex;
+    align-items: center;
+}
+
+.service .description {
+    display: none;
+    color: #333333;
+}
+
+.service:hover .description {
+    display: block;
+}
+
+.icon {
+    margin-right: 10px;
+}
+</style>
+</head>
+<body>
+
+    <!-- Menu arriba -->
+    <nav id="menu" class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A4DBD; height: 15%; position: absolute; width: 100%;">
+        <div class="container-fluid">
+            <a class="navbar-brand" class="menu-item active" id="opcion1" href="../index.html"><img
+                    src="https://www.utng.edu.mx/assets/principal/logoutng.webp" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Migajas de pan -->
+    <br><br><br><br>
+    <nav style="--bs-breadcrumb-divider: '>'; font-size: 18px; text-align: left; margin-left: 15%; margin-top: 6%; position: absolute; " aria-label="breadcrumb">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black;">Inicio</a></li>
+           <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+       </ol>
+   </nav><br>
+
+<div class="container">
+    <h1>Servicios</h1><br>
+    
+    <div class="service">
+        <h2><i class="icon fas fa-book"></i>Servicio de Consulta en línea de catálogo</h2>
+        <p class="description">Permite a los usuarios buscar libros, revistas, materiales audiovisuales, etc., disponibles en la biblioteca a través de un catálogo en línea.</p>
+    </div>
+    
+    <div class="service">
+        <h2><i class="icon fas fa-book-reader"></i>Servicio de Reservas en línea</h2>
+        <p class="description">Ofrece a los usuarios la posibilidad de reservar libros u otros materiales en línea.</p>
+    </div>
+    
+    <div class="service">
+        <h2><i class="icon fas fa-sync"></i>Servicio de Renovación de préstamos</h2>
+        <p class="description">Permite a los usuarios renovar los préstamos de los materiales que tienen prestados.</p>
+    </div>
+    
+    <div class="service">
+        <h2><i class="icon fas fa-bell"></i>Servicio de Notificaciones y recordatorios</h2>
+        <p class="description">Configura un sistema de notificaciones por correo electrónico o mensajes de texto para recordar a los usuarios sobre fechas de vencimiento de préstamos, disponibilidad de materiales reservados, eventos de la biblioteca, etc.</p>
+    </div>
+    
+    <!-- Agrega más servicios según sea necesario -->
+</div>
+
+    <!--Pie de pagina-->
+
+    <footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+        <br>
+        <br>
+        <div class="text-center">
+            <a href="/mapa-inicio" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+        </div>
+        <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+        <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+        <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+        <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+        <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+.container {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+h1 {
+    font-size: 60px;
+    color: #2A4DBD;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10%;
+}
+.category {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 30%; /* Ajusta el ancho según tu preferencia */
+}
+.category:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.category img {
+    width: 100px; /* ajusta el ancho según sea necesario */
+    height: auto; /* mantiene la proporción de aspecto */
+    display: block;
+    margin: 0 auto 20px; /* centrar la imagen dentro del contenedor */
+}
+.category h2 {
+    font-size: 24px;
+    color: #2A4DBD;
+    margin-bottom: 10px;
+}
+.category p {
+    font-size: 16px;
+    color: #666;
+}

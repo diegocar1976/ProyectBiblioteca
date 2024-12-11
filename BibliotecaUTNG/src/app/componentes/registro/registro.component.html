@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <!-- Menu arriba -->
+  <nav id="menu" class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A4DBD; height: 15%; position: absolute; width: 100%; margin-bottom: 71%;">
+    <div class="container-fluid">
+        <a class="navbar-brand" class="menu-item active" id="opcion1" href="../index.html"><img
+                src="https://www.utng.edu.mx/assets/principal/logoutng.webp" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Formulario para registrarse -->
+
+<div class="container">
+  <h1>Registrarse</h1>
+  <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)" class="needs-validation" novalidate>
+
+    <div class="form-group" style="margin-bottom: 10px;">
+      <input type="text" name="numeroControl" [(ngModel)]="numeroControl" class="form-control" placeholder="Número de control" required (keydown)="validateNumberInput($event)"  minlength="10" maxlength="10" pattern="[0-9]{10}" (ngModelChange)="registroForm.controls['numeroControl']?.markAsTouched()" [ngClass]="{'is-invalid': registroForm.controls['numeroControl']?.invalid && registroForm.controls['numeroControl']?.touched, 'is-valid': registroForm.controls['numeroControl']?.valid && registroForm.controls['numeroControl']?.touched}">
+      <div class="invalid-feedback">
+        <div *ngIf="registroForm.controls['numeroControl']?.errors?.['required']">El número de control es obligatorio.</div>
+        <div *ngIf="registroForm.controls['numeroControl']?.errors?.['minlength']">El número de control debe tener 10 dígitos.</div>
+        <div *ngIf="registroForm.controls['numeroControl']?.errors?.['maxlength']">El número de control debe tener 10 dígitos.</div>
+      </div>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 10px;">
+      <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control" placeholder="Nombre" required minlength="3" maxlength="30" (ngModelChange)="registroForm.controls['nombre']?.markAsTouched()" [ngClass]="{'is-invalid': registroForm.controls['nombre']?.invalid && registroForm.controls['nombre']?.touched, 'is-valid': registroForm.controls['nombre']?.valid && registroForm.controls['nombre']?.touched}">
+      <div class="invalid-feedback">
+        <div *ngIf="registroForm.controls['nombre']?.errors?.['required']">El nombre es obligatorio.</div>
+        <div *ngIf="registroForm.controls['nombre']?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+        <div *ngIf="registroForm.controls['nombre']?.errors?.['maxlength']">El nombre no puede tener más de 30 caracteres.</div>
+      </div>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 10px;">
+      <input type="text" name="apellido" [(ngModel)]="apellido" class="form-control" placeholder="Apellido" required minlength="3" maxlength="50" (ngModelChange)="registroForm.controls['apellido']?.markAsTouched()" [ngClass]="{'is-invalid': registroForm.controls['apellido']?.invalid && registroForm.controls['apellido']?.touched, 'is-valid': registroForm.controls['apellido']?.valid && registroForm.controls['apellido']?.touched}">
+      <div class="invalid-feedback">
+        <div *ngIf="registroForm.controls['apellido']?.errors?.['required']">El apellido es obligatorio.</div>
+        <div *ngIf="registroForm.controls['apellido']?.errors?.['minlength']">El apellido debe tener al menos 3 caracteres.</div>
+        <div *ngIf="registroForm.controls['apellido']?.errors?.['maxlength']">El apellido no puede tener más de 50 caracteres.</div>
+      </div>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 10px;">
+      <input type="email" name="email" [(ngModel)]="email" class="form-control" placeholder="Correo electrónico" required email (ngModelChange)="registroForm.controls['email']?.markAsTouched()" [ngClass]="{'is-invalid': registroForm.controls['email']?.invalid && registroForm.controls['email']?.touched, 'is-valid': registroForm.controls['email']?.valid && registroForm.controls['email']?.touched}">
+      <div class="invalid-feedback">
+        <div *ngIf="registroForm.controls['email']?.errors?.['required']">El correo electrónico es obligatorio.</div>
+        <div *ngIf="registroForm.controls['email']?.errors?.['email']">El correo electrónico debe tener un formato válido.</div>
+      </div>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 10px;">
+      <input type="text" name="telefono" [(ngModel)]="telefono" class="form-control" placeholder="Teléfono" required (keydown)="validateNumberInput($event)"  minlength="10" maxlength="10" pattern="[0-9]{10}" (ngModelChange)="registroForm.controls['telefono']?.markAsTouched()" [ngClass]="{'is-invalid': registroForm.controls['telefono']?.invalid && registroForm.controls['telefono']?.touched, 'is-valid': registroForm.controls['telefono']?.valid && registroForm.controls['telefono']?.touched}">
+      <div class="invalid-feedback">
+        <div *ngIf="registroForm.controls['telefono']?.errors?.['required']">El teléfono es obligatorio.</div>
+        <div *ngIf="registroForm.controls['telefono']?.errors?.['pattern']">El teléfono debe tener 10 dígitos numéricos.</div>
+      </div>
+    </div>
+  
+    <div class="form-group" style="margin-bottom: 10px;">
+      <input type="password" name="password" [(ngModel)]="password" class="form-control"
+    placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@!#$%^&])[A-Za-z\d@!#$%^&]{8,}$"
+    (ngModelChange)="registroForm.controls['password']?.markAsTouched()"
+    [ngClass]="{'is-invalid': registroForm.controls['password']?.invalid && registroForm.controls['password']?.touched, 'is-valid': registroForm.controls['password']?.valid && registroForm.controls['password']?.touched}">
+      <div class="invalid-feedback">
+          <div *ngIf="registroForm.controls['password']?.errors?.['required']">La contraseña es obligatoria.</div>
+          <div *ngIf="registroForm.controls['password']?.errors?.['pattern']">La contraseña debe contener al menos una mayúscula, una minúscula, un dígito numérico y un símbolo, y tener una longitud mínima de 8 caracteres.</div>
+      </div>
+  </div>
+
+  <div class="form-group" style="margin-bottom: 10px;">
+    <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" class="form-control"
+      placeholder="Confirmar Contraseña" required
+      [pattern]="passwordPattern"
+      (ngModelChange)="validateConfirmPassword()"
+      [ngClass]="{'is-invalid': registroForm.controls['confirmPassword']?.invalid && registroForm.controls['confirmPassword']?.touched, 'is-valid': registroForm.controls['confirmPassword']?.valid && registroForm.controls['confirmPassword']?.touched}">
+    <div class="invalid-feedback">
+      <div *ngIf="registroForm.controls['confirmPassword']?.errors?.['required']">La confirmación de la contraseña es obligatoria.</div>
+      <div *ngIf="registroForm.controls['confirmPassword']?.errors?.['pattern']">La contraseña debe contener al menos una mayúscula, una minúscula, un dígito numérico y un símbolo, y tener una longitud mínima de 8 caracteres.</div>
+      <div *ngIf="registroForm.controls['confirmPassword']?.errors?.['passwordMismatch']">Las contraseñas no coinciden.</div>
+    </div>
+  </div>
+  
+
+  <!-- Verificacion humana -->
+  <div class="verificacion">
+    <div class="g-recaptcha" data-sitekey="6Lc3jKspAAAAAIyRa1e18Dv4R1fVoubE8mLJVNry" #captchaElement></div> <br>
+  </div>
+  
+
+  
+
+    <div class="Registro">
+    ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a><br><br>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+    
+  </form>
+</div>  
+
+</body>
+</html>

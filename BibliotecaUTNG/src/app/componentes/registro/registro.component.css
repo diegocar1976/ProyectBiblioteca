@@ -1,0 +1,126 @@
+body {
+  background-image: url(https://images.pexels.com/photos/2898170/pexels-photo-2898170.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 130vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+}
+
+h1 {
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+.container {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 90%; /* Ajustar el ancho al 90% del ancho de la pantalla */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin-top: 10%; /* Bajar el contenedor un 10% desde la parte superior */
+  text-align: center;
+}
+
+
+/* Estilo para los campos de entrada */
+.form-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  padding-right: 30px; /* Ajusta el espacio a la derecha para el icono */
+}
+
+.form-group i {
+  position: absolute;
+  right: 330px;
+  top: calc(50% - 10px); /* Centra verticalmente el icono */
+  opacity: 0.5;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  width: calc(100% - 24px);
+  transition: border-color 0.3s ease;
+  text-indent: 40px; /* Ajusta este valor según sea necesario para tu icono */
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  text-indent: 40px; /* Ajusta este valor según sea necesario para alinear el placeholder con el texto del input */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #00a887;
+  outline: none;
+}
+
+button {
+  background-color: #00a887;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #00a887;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Ancho del botón al 100% del contenedor */
+}
+
+button:hover {
+  background-color: #007e66; /* Cambia el color al pasar el mouse */
+}
+
+.error-message {
+  font-size: 12px; /* Tamaño de fuente más pequeño */
+  color: red; /* Color rojo */
+}
+
+/* Ocultar el mensaje de error por defecto */
+input.ng-invalid.ng-dirty:not(:focus) + .error-message {
+  display: none;
+}
+
+.Registro {
+  text-align: center; /* Centra el texto de Registro */
+  margin-top: 20px; /* Espacio superior */
+}
+
+#menu {
+  position: fixed; /* Mantener el menú fijo en la parte superior */
+  top: 0; /* Posicionar el menú en la parte superior */
+  width: 100%; /* Ancho completo */
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+.navbar-brand {
+  margin-left: 10px; /* Ajustar el margen izquierdo */
+}
+
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.5); /* Color del borde del botón del menú */
+  width: auto; /* Restaurar el ancho automático del botón */
+  padding: .25rem .75rem; /* Ajustar el relleno del botón */
+}

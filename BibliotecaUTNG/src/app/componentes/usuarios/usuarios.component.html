@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="usuarios.component.css">
+  <title>GestionUsuarios</title>
+</head>
+<body>
+  
+  <!-- Contenido principal -->
+  <div id="contenidoPrincipal" style="margin-bottom: 0%;">
+
+    <!-- Migajas de pan -->
+    <br><br><br><br>
+    <nav style="--bs-breadcrumb-divider: '>'; font-size: 18px; text-align: left; margin-left: 15%; margin-top: 6%; position: absolute; " aria-label="breadcrumb">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: white;">Inicio</a></li>
+           <li class="breadcrumb-item active" style="color: white;" aria-current="page">Gestión de usuarios</li>
+       </ol>
+   </nav>
+
+  <h1 class="title">Gestion de usuarios</h1><br>
+
+<!--
+<form action="/buscar">
+  <i class="fa-solid fa-magnifying-glass"></i><input class="barra" type="share" name="" placeholder="Buscar">
+  <input class="btnBuscar" type="submit" value="Buscar"><br><br><br>
+</form>
+-->
+
+<!-- Tabla -->
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Num.Control</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+
+    </tr>
+  </thead>
+  <tbody *ngFor="let usuario of usuarios; let i = index;">
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{usuario.numControl}}</td>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.correo}}</td>
+      <td>{{usuario.telefono}}</td>
+      <td><button (click)="abrirModalEditar(usuario.numControl)" style="background-color: none; border: none;"><i class="fa-solid fa-pen-to-square" style="color: #0042aa;" data-bs-toggle="modal" data-bs-target="#modalEditar"></i></button></td>
+      <td><button (click)="eliminarUsuario(usuario.numControl)" style="background-color: none; border: none;"><i class="fa-solid fa-trash" style="color: #e32402;"></i></button></td>
+
+  </tbody>
+</table>
+</div>
+
+<div class="modal" tabindex="-1" id="modalEditar" *ngIf="datosCargados">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Actualizar datos del usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form class="formulario form-inline" #formulario="ngForm">
+
+          <div class="form-group">
+            <label for="nombre" class="d-block">Nombre:</label>
+            <input class="inp form-control" type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" required placeholder="Nombre" #nombre="ngModel">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+              <div *ngIf="nombre.errors?.['required']">El nombre es requerido.</div>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="apellido" class="d-block">Apellido:</label>
+            <input class="inp form-control" type="text" id="apellido" [(ngModel)]="usuario.apellido" name="apellido" required placeholder="Apellido" #apellido="ngModel">
+            <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="text-danger">
+              <div *ngIf="apellido.errors?.['required']">El apellido es requerido.</div>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="correo" class="d-block">Correo:</label>
+            <input class="inp form-control" type="email" id="correo" [(ngModel)]="usuario.correo" name="correo" required placeholder="Correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" #correo="ngModel">
+            <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="text-danger">
+              <div *ngIf="correo.errors?.['required']">El correo es requerido.</div>
+              <div *ngIf="correo.errors?.['pattern']">El formato del correo no es válido.</div>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="telefono" class="d-block">Teléfono:</label>
+            <input class="inp form-control" type="tel" id="telefono" [(ngModel)]="usuario.telefono" name="telefono" required placeholder="Teléfono" pattern="[0-9]{10}" #telefono="ngModel">
+            <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="text-danger">
+              <div *ngIf="telefono.errors?.['required']">El teléfono es requerido.</div>
+              <div *ngIf="telefono.errors?.['pattern']">El teléfono debe contener 10 dígitos numéricos.</div>
+            </div>
+          </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button (click)="actualizarUsuario()" type="button" class="btn btn-primary" [disabled]="formulario.invalid" data-bs-dismiss="modal">Guardar</button>
+          </div>     
+        
+        </form>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Pie de pagina -->
+<footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+  <br>
+  <br>
+  <div class="text-center">
+      <a href="/mapa" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+  </div>
+  <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+  <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+  <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+  <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+  <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+</footer>
+</div> <!-- Final de contenido principal -->
+
+<!-- Modal para editar  -->
+<div class="modal fade" id="editarPrestamo" tabindex="-1" aria-labelledby="editarPrestamoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header col-12 w-100" >
+        <h1 class="modal-title fs-5 w-100" style="text-align: center; margin-left: 12px; margin-top: 2%;" id="editarPrestamoLabel">Editar Prestamo</h1>
+      </div>
+      <div class="modal-body">
+        <form class="book-form" >
+          <div class="input-group">
+            <label for="publicationDate" style="margin-top: 5%;" ><i class="fa-solid fa-calendar-days" style="font-size: 20px;
+              position: relative;
+              left: 114%;"></i> Fecha devolución:</label>
+            <input style="width: 250px;
+            padding: 15px 15px 15px 50px;
+            margin: 5px;" type="date" id="publicationDate" formControlName="fechaDevolucion" required>
+            <div  class="error-message">
+
+            </div> <br>
+          </div>
+
+          <button style="visibility: hidden;" type="submit" #submit></button>
+        </form>
+      </div>
+      <div class="modal-footer col-12" style="text-align: center;">
+
+        <button class="btn cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn save" (click)="submit.click()" data-bs-dismiss="modal" >Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

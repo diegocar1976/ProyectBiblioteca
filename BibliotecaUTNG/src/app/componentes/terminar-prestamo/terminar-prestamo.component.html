@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="terminar-prestamo.component.css">
+    <title>Finalizar Sanción/Prestamo</title>
+</head>
+<body>
+    <h1>Finalizar Sanción/Prestamo</h1><br><br><br>
+    <form action="/buscar">
+        <i class="fa-solid fa-magnifying-glass"></i><input class="barra" type="share" name="" placeholder="Buscar">
+        <input class="btnBuscar" type="submit" value="Buscar"><br><br><br>
+    </form>
+
+    <!-- Tabla -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID Prestamo</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">ID Ejemplar</th>
+          <th scope="col">Fecha entrega</th>
+          <th scope="col">Fecha devolución</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Número control</th>
+          <th scope="col" style="width: 5%;">Editar</th>
+          <th scope="col" style="width: 5%;">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let prestamo of prestamos">
+        <tr>
+          <td>{{prestamo.idPrestamo}}</td>
+          <td>{{prestamo.ISBN}}</td>
+          <td>{{prestamo.idEjemplar}}</td>
+          <td>{{prestamo.fechaPrestamo}}</td>
+          <td>{{prestamo.fechaDevolucion}}</td>
+          <td>{{prestamo.correo}}</td>
+          <td>{{prestamo.numControl}}</td>
+          <td><button style="background-color: white; border: none;"><i class="fa-solid fa-pen-to-square" style="color: #0042aa;"></i></button></td>
+          <td><button (Onclick)="eliminarPrestamo()" style="background-color: white; border: none;"><i class="fa-solid fa-trash" style="color: #e32402;"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

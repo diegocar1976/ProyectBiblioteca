@@ -1,0 +1,40 @@
+h1{
+    margin-top: 10%;
+    margin-left: 35%;
+}
+
+.barra{
+    border-radius: 20px; /* Puedes ajustar el valor según el radio de redondeo que desees */
+    padding: 10px; /* Ajusta el espacio interno del campo de entrada según tus necesidades */
+    font-size: 16px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    border: 1px solid #ccc;
+    width: 50%;
+    margin-left: 20%;
+    padding: 15px 15px 15px 50px;
+}
+
+.btnBuscar{
+    border-radius: 20px; /* Puedes ajustar el valor según el radio de redondeo que desees */
+    padding: 10px; /* Ajusta el espacio interno del campo de entrada según tus necesidades */
+    font-size: 16px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    border: 1px solid #ccc;
+    margin-left: 1%;
+    width: 8%;
+    background-color: #00A887;
+    color: white;
+}
+
+.fa-solid{
+    font-size: 20px;
+    position: relative;
+    left: 22.8%;
+}
+
+table{
+    text-align: center ;
+    width: 100%;
+}
+
+tr .fa-solid{
+    margin-right: 6%;
+}

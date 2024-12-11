@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="restablecer.component.css">
+    <title>Restablecer</title>
+</head>
+<body>
+
+  <!-- Menu arriba -->
+  <nav id="menu" class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A4DBD;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html"><img src="https://www.utng.edu.mx/assets/principal/logoutng.webp" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+</nav>
+
+  <div class="container">
+<div class="reset-password-container">
+  <div class="reset-password-form">
+    <h2>Restablecer contraseña</h2>
+
+    <!-- Mostrar el formulario de envío de correo si aún no se ha enviado el código de verificación -->
+    <div *ngIf="!verificationCodeSent">
+      <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" [(ngModel)]="email" [formControl]="emailFormControl" [class.valid-input]="emailFormControl.valid" placeholder="Correo Electrónico">
+        <div *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)" class="error-message">
+          <div *ngIf="emailFormControl.hasError('required')">
+            * El correo electrónico es obligatorio.
+          </div>
+          <div *ngIf="emailFormControl.hasError('email')">
+            * El formato del correo electrónico no es válido.
+          </div>
+        </div>
+      </div>
+      <div class="Registro">
+        ¿Ya tienes una cuenta? <a routerLink="/login" style="text-decoration: none;">Inicia sesión</a><br>
+        ¿No tienes cuenta? <a routerLink="/registrate" style="text-decoration: none;">Registrate</a><br><br>
+        </div>
+      <button type="button" class="btn btn-primary" (click)="sendVerificationCode()" [disabled]="emailFormControl.invalid">Enviar</button>
+    </div>
+
+    <!-- Mostrar el formulario de verificación de código si ya se ha enviado el código de verificación -->
+<!-- Mostrar el formulario de verificación de código si ya se ha enviado el código de verificación -->
+<div *ngIf="verificationCodeSent && !showResetForm">
+  <div class="form-group">
+    <label for="code">Código de Verificación:</label>
+    <input type="text" id="code" [(ngModel)]="code" name="code" [formControl]="codeFormControl" [class.valid-input]="codeFormControl.valid" required maxlength="6" class="form-control" style="width: 230px; padding: 30px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;" placeholder="Código de verificación">
+    <div *ngIf="codeFormControl.invalid && (codeFormControl.dirty || codeFormControl.touched)" class="error-message">
+      <div *ngIf="codeFormControl.hasError('required')">
+        * El código de verificación es obligatorio.
+      </div>
+      <div *ngIf="codeFormControl.hasError('pattern')">
+        * El código debe tener exactamente 6 caracteres.
+      </div>
+    </div>
+  </div>
+  <div class="Registro">
+    ¿Ya tienes una cuenta? <a routerLink="/login" style="text-decoration: none;">Inicia sesión</a><br>
+    ¿No tienes cuenta? <a routerLink="/registrate" style="text-decoration: none;">Registrate</a><br><br>
+    </div>
+  <button type="button" class="btn btn-primary" (click)="verifyCode()">Verificar Código</button>
+</div>
+
+
+
+  
+    <!-- Mostrar el formulario de restablecimiento de contraseña si se ha verificado el código -->
+<div *ngIf="showResetForm">
+  <div class="form-group">
+    <label for="newPassword">Nueva Contraseña:</label>
+    <input type="password" placeholder="Restablecer contraseña" id="newPassword" [(ngModel)]="newPassword" name="newPassword" [formControl]="passwordFormControl" [class.valid-input]="passwordFormControl.valid">
+    <div *ngIf="passwordFormControl.invalid && (passwordFormControl.dirty || passwordFormControl.touched)" class="error-message">
+      <div *ngIf="passwordFormControl.hasError('required')">
+        * La contraseña es obligatoria.
+      </div>
+      <div *ngIf="passwordFormControl.hasError('minlength')">
+        * La contraseña debe tener al menos 8 caracteres.
+      </div>
+      <div *ngIf="passwordFormControl.hasError('pattern')">
+        * La contraseña debe contener al menos una mayúscula, una minúscula, un carácter especial y un dígito numérico.
+      </div>
+    </div>
+  </div>
+  
+  <div class="Registro">
+    ¿Ya tienes una cuenta? <a routerLink="/login" style="text-decoration: none;">Inicia sesión</a><br>
+    ¿No tienes cuenta? <a routerLink="/registrate" style="text-decoration: none;">Registrate</a><br><br>
+    </div>
+  <button type="button" class="btn btn-primary" (click)="restablecerContrasena()" [disabled]="passwordFormControl.invalid">Restablecer Contraseña</button>
+</div>
+
+
+  </div>
+  </div>
+</div>
+</body>
+</html>

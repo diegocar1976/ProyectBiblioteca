@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes - Biblioteca UTNG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-o56DJItZDbVz+wrUx85P8/hJ3GpBweDl77Q/SIsg1IidkE+M50C0OtrxEKjRgMuQXg/4U5EMjR6ZpJ0+FkjgAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- Menu arriba -->
+    <nav id="menu" class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A4DBD; height: 15%; position: absolute; width: 100%;">
+        <div class="container-fluid">
+            <a class="navbar-brand" class="menu-item active" id="opcion1" href="../index.html"><img
+                    src="https://www.utng.edu.mx/assets/principal/logoutng.webp" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Migajas de pan -->
+    <br><br><br><br>
+    <nav style="--bs-breadcrumb-divider: '>'; font-size: 18px; text-align: left; margin-left: 15%; margin-top: 6%; position: absolute; " aria-label="breadcrumb">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black;">Inicio</a></li>
+           <li class="breadcrumb-item active" aria-current="page">Apartados</li>
+       </ol>
+   </nav>
+
+        <br><h1>Solicitudes</h1><br>
+
+    <main>
+        <section>
+            <h2>Realizar una solicitud</h2>
+            <p>En esta sección puedes proporcionar información sobre cómo realizar una solicitud de préstamo de libros u otros recursos de la biblioteca.</p>
+            <p>Incluye instrucciones claras sobre qué pasos deben seguir los usuarios, qué información necesitan proporcionar y cuáles son los plazos y condiciones de préstamo.</p>
+        </section>
+
+        <section>
+            <h2>Consultar estado de solicitud</h2>
+            <p>Aquí puedes permitir a los usuarios consultar el estado de sus solicitudes pendientes, proporcionando un formulario o un enlace donde puedan ingresar su información de solicitud para obtener detalles sobre el progreso.</p>
+            <p>Podrías incluir un formulario donde los usuarios ingresen su número de solicitud o identificación para verificar el estado de sus solicitudes.</p>
+        </section>
+
+        <section>
+            <h2>Políticas de solicitud</h2>
+            <p>En esta sección, puedes detallar las políticas de solicitud de la biblioteca, incluyendo los tipos de materiales que se pueden solicitar, los plazos de préstamo, las multas por retraso, etc.</p>
+            <p>Asegúrate de que estas políticas estén claramente definidas y sean fácilmente accesibles para los usuarios.</p>
+        </section>
+
+        <!-- Botón para mostrar el formulario -->
+        <button onclick="mostrarFormulario()">Hacer una solicitud</button>
+
+        <!-- Formulario de solicitud -->
+<form id="solicitud-form">
+    <h2>Realizar una Solicitud</h2>
+    
+    <!-- Campos del formulario -->
+    
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="correo" class="form-label">Correo electrónico:</label>
+        <input type="email" class="form-control" id="correo" name="correo" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono:</label>
+        <input type="tel" class="form-control" id="telefono" name="telefono">
+    </div>
+    
+    <div class="mb-3">
+        <label for="libro" class="form-label">Título del libro:</label>
+        <input type="text" class="form-control" id="libro" name="libro" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="fecha_prestamo" class="form-label">Fecha de préstamo:</label>
+        <input type="date" class="form-control" id="fecha_prestamo" name="fecha_prestamo" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="fecha_devolucion" class="form-label">Fecha de devolución:</label>
+        <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion" required>
+    </div>
+    
+</form>
+
+    </main>
+
+    <!--Pie de pagina-->
+    <footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+        <br>
+        <br>
+        <div class="text-center">
+            <a href="/mapa-inicio" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+        </div>
+        <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+        <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+        <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+        <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+        <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+    </footer>
+
+    <script>
+        // Función para mostrar u ocultar el formulario
+        function mostrarFormulario() {
+            var formulario = document.getElementById("solicitud-form");
+            if (formulario.style.display === "none") {
+                formulario.style.display = "block";
+            } else {
+                formulario.style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

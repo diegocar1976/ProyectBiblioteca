@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+</head>
+<body>
+
+  <!-- Contenido principal -->
+  <div id="contenidoPrincipal" style="margin-bottom: 0%;">
+
+    <!-- Migajas de pan -->
+    <br><br><br><br>
+    <nav style="--bs-breadcrumb-divider: '>'; color: white; font-size: 18px; text-align: left; margin-left: 15%; margin-top: 6%; position: absolute; " aria-label="breadcrumb">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/inicio-usuario"  style="text-decoration: none; color: white">Inicio</a></li>
+           <li class="breadcrumb-item active" style="color: white;" aria-current="page">Libros</li>
+       </ol>
+   </nav>
+
+  <h1>Libros</h1><br>
+  <form>
+
+    <!-- Barra de búsqueda -->
+    <input type="text" 
+       [(ngModel)]="filtroNombre" 
+       (input)="onBuscarChange($event)" 
+       placeholder="Buscar por título..." 
+       style="padding: 8px;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+              font-size: 16px;
+              width: 80%;
+              margin: 0 auto;
+              display: block;">
+
+
+
+    
+    <br><br>
+  </form>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ISBN</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Autores</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">ID del ejemplar</th>
+        <th scope="col" style="width: 5%;">Pedir prestamo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let Ejemplar of ejemplares">
+        <tr *ngIf="cumpleFiltro(Ejemplar)">
+          <td>{{Ejemplar.ISBN}}</td>
+          <td>{{Ejemplar.titulo}}</td>
+          <td>{{Ejemplar.autores}}</td>
+          <td>{{Ejemplar.categoria}}</td>
+          <td>{{Ejemplar.idEjemplar}}</td>
+          <td>
+            <button style="background-color: none; border: none;" (click)="pedirPrestamo(Ejemplar.ISBN, Ejemplar.idEjemplar)">
+              <i class="fa-solid fa-pen-to-square" style="color: #0042aa;"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>  
+
+  <!-- Pie de pagina -->
+  <footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+    <br>
+    <br>
+    <div class="text-center">
+        <a href="/mapa" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+    </div>
+    <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+    <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+    <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+    <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+    <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+</footer>
+</div> <!-- Final de contenido principal -->
+
+</body>
+</html>

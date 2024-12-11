@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de logo */
+.navbar-brand{
+    margin-bottom: -2.5%;
+    margin-left: 2%;
+}
+
+/* Estilos de barra de arriba */
+.container-fluid{
+    background-color: #2A4DBD;
+    z-index: 1;
+    position: absolute;
+    margin-bottom: -3%;
+    height: 280%;
+}
+
+/* Estilo para el efecto hover en los elementos del menú desplegable */
+.dropdown-menu a.dropdown-item:hover {
+    background-color: #00796B; /* Cambia este color al que desees para el fondo del elemento hover */
+    color: white; /* Cambia este color al que desees para el texto del elemento hover */
+}
+
+/* Estilos de boton de usuario*/
+/* app.component.css */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown-content p {
+    margin: 0;
+  }
+  
+  .dropdown-content button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-toggle {
+    color: white;
+  }
+  
+  .dropdown-menu {
+    background-color: #00A887;
+    color: white;
+  }
+  
+  .dropdown-item {
+    background-color: #00A887;
+    color: white;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #00846E; /* Cambia el color de fondo al pasar el mouse */
+  }
+  

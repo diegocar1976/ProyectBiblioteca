@@ -1,0 +1,10 @@
+<ng-container *ngIf="isHomePageOrErrorPage(); else otherPages">
+    <app-menu></app-menu>
+  </ng-container>
+  <router-outlet></router-outlet>
+  
+  <ng-template #otherPages>
+    <!-- Aquí puedes mostrar el nav-bar en otras páginas si es necesario -->
+    <app-menu></app-menu>
+  </ng-template>
+  

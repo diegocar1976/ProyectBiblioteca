@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url(https://i.pinimg.com/originals/1f/e9/d2/1fe9d2cd1e39edbf66339621fecd0aad.jpg);
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la pantalla */
+  background-position: center; /* Centra la imagen de fondo */
+}
+
+
+
+.recuadro {
+  width: 800px;
+  height: 400px;
+  border: 2px solid #000;
+  padding: 20px;
+  position: absolute;
+  background-color: white;
+}
+
+/* Estilos para el texto dentro del recuadro */
+.texto {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.letras{
+  font-family: 'Monaco', monospace;
+  text-align: center;
+  padding-top: 150px;
+  font-size: 40px;
+  position: absolute;
+  margin-left: 1%;
+  margin-top: -10%;
+}
+
+.mensaje{
+  padding-top: 15%;
+  font-size: 20px;
+  text-align: justify;
+}

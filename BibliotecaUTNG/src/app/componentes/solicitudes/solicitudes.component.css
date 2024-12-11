@@ -1,0 +1,39 @@
+body {
+    background-color: #f8f9fa; /* Cambiar si es necesario */
+}
+
+h1 {
+    color: #2A4DBD;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10%;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2A4DBD; /* Cambiar si es necesario */
+}
+
+p {
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #00A887;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo para el formulario */
+#solicitud-form {
+    display: none;
+    margin-top: 30px;
+}

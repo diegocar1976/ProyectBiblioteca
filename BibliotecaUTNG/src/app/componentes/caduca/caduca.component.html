@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caduca</title>
+</head>
+<body>
+    <form class="container">
+        <p>El inicio de sesión ya caducó</p>
+        <p>¿Quieres extender el inicio de sesión?</p>
+        <div class="d-flex justify-content-center">
+            <button type="button" (click)="logout()" class="btn btn-secondary mr-1">Cancelar</button>
+            <button type="button" (click)="extendSession()" class="btn btn-primary ml-1">Extender sesión</button>
+          </div>                     
+    </form>
+</body>
+</html>

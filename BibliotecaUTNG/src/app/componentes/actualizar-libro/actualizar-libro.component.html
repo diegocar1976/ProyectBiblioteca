@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="actualizar-libro.component.css">
+    <title>Actualizar libro</title>
+    <style>
+      .inp{
+        width: 250px !important;
+        height: 35px !important;
+      }
+    </style>
+</head>
+
+<body>
+
+  <!-- Contenido principal -->
+  <div id="contenidoPrincipal" style="margin-bottom: 0%;">
+
+    <!-- Migajas de pan -->
+    <br><br><br><br>
+    <nav style="--bs-breadcrumb-divider: '>'; font-size: 18px; text-align: left; margin-left: 15%; margin-top: 6%; position: absolute; " aria-label="breadcrumb">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: white;">Inicio</a></li>
+           <li class="breadcrumb-item active" style="text-decoration: none; color: white;" aria-current="page">Actualizar/Eliminar libro</li>
+       </ol>
+   </nav>
+
+  <h1>Actualizar/Eliminar libro</h1><br>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Autor(es)</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Fecha de publicación</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">Cant. ejemplares</th>
+        <th scope="col">Categoría</th>
+        <th scope="col" style="width: 5%;">Actualizar</th>
+        <th scope="col" style="width: 5%;">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let Libro of libros">
+      <tr>
+        <td>{{Libro.titulo}}</td>
+        <td>{{Libro.autores}}</td>
+        <td>{{Libro.ISBN}}</td>
+        <td>{{Libro.fPublicacion}}</td>
+        <td>{{Libro.editorial}}</td>
+        <td>{{Libro.cantEjemplares}}</td>
+        <td>{{Libro.categoria}}</td>
+        <td><button style="background-color: none; border: none;"><i class="fa-solid fa-pen-to-square" style="color: #0042aa;" data-bs-toggle="modal" data-bs-target="#modalEditar" (click)="getLibro(Libro.ISBN)"></i></button></td>
+        <td><button style="background-color: none; border: none;"><i class="fa-solid fa-trash" style="color: #e32402;" (click)="confirmarEliminarLibro(Libro.ISBN)"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  <div class="modal" tabindex="-1" id="modalEditar">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Actualizar datos del libro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="formulario form-inline" >
+            <div class="form-group">
+              <label for="isbn" class="d-block">ISBN:</label>
+              <div class="input-group"> <!-- Utiliza la clase input-group para agrupar el campo de entrada con el ícono -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
+                </div>
+                <input disabled="true" class="inp form-control" type="text" id="isbn" [(ngModel)]="ISBND" [ngModelOptions]="{standalone:true}" name="isbn" required placeholder="ISBN">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="titulo" class="d-block">Título:</label>
+              <div class="input-group"> <!-- Utiliza la clase input-group para agrupar el campo de entrada con el ícono -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-book"></i></span>
+                </div>
+                <input class="inp form-control" type="text" id="titulo" [(ngModel)]="Titulo" name="titulo" required placeholder="Titulo">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="autores" class="d-block">Autores:</label>
+              <div class="input-group"> <!-- Utiliza la clase input-group para agrupar el campo de entrada con el ícono -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
+                </div>
+                <input class="inp form-control" type="text" id="autores" [(ngModel)]="Autores" name="autores" required placeholder="Autor(es)">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fPublicacion" class="d-block">Fecha de publicación:</label>
+              <div class="input-group"> <!-- Utiliza la clase input-group para agrupar el campo de entrada con el ícono -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                </div>
+                <input class="inp form-control" type="date" id="fPublicacion" [(ngModel)]="fPublicacion" name="fPublicacion" required placeholder="Fecha publicación">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="editorial" class="d-block">Editorial:</label>
+              <div class="input-group"> <!-- Utiliza la clase input-group para agrupar el campo de entrada con el ícono -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-newspaper"></i></span>
+                </div>
+                <input class="inp form-control" type="text" id="editorial" [(ngModel)]="Editorial" name="editorial" required placeholder="Editorial">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="categoria" class="d-block">Categoría:</label>
+              <div class="input-group"> <!-- Utiliza la clase input-group para agrupar el campo de entrada con el ícono -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
+                </div>
+                <select class="inp form-control" id="categoria" [(ngModel)]="Categoria" name="categoria" required>
+                  <option *ngFor="let categoria of categorias" [value]="categoria.nombre">{{ categoria.nombre }}</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btnGuardar" type="button" (click)="actualizarLibro()" data-bs-dismiss="modal">Guardar libro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- Pie de pagina -->
+        <footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+          <br>
+          <br>
+          <div class="text-center">
+              <a href="/mapa" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+          </div>
+          <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+          <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+          <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+          <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+          <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+      </footer>
+  </div> <!-- Final de contenido principal -->
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="alta-libro.component.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Alta libro</title>
+</head>
+<body>
+
+  <!-- Contenido principal -->
+  <div id="contenidoPrincipal" style="margin-bottom: 0%;">
+
+    <!-- Migajas de pan -->
+    <br><br><br>
+<nav style="--bs-breadcrumb-divider: '>'; font-size: 18px; text-align: left; margin-left: 15%; margin-top: 6%; position: absolute;" aria-label="breadcrumb">
+   <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/inicio-usuario']" style="text-decoration: none; color: rgb(255, 255, 255);">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page" style="color: white;">Alta de libro</li>
+   </ol>
+</nav>
+<br>
+
+
+
+<br><br><h1>Alta de libro</h1><br><br>
+
+<div class="container">
+
+  <form class="formulario" #altaForm="ngForm" (ngSubmit)="altaLibro()" novalidate>
+    <label for="isbn">ISBN:</label>
+    <input type="number" id="isbn" [(ngModel)]="ISBND" name="isbn" required minlength="13" maxlength="13" pattern="\d*" placeholder="ISBN">
+
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" [(ngModel)]="Titulo" name="titulo" required minlength="3" maxlength="150" placeholder="Título">
+
+    <label for="autores">Autores:</label>
+    <div *ngFor="let autor of Autores; let i = index">
+        <input type="text" [(ngModel)]="Autores[i]" [ngModelOptions]="{standalone: true}" [attr.name]="'autor' + i" required minlength="3" maxlength="200" placeholder="Autor {{i + 1}}">
+        <button type="button" (click)="eliminarAutor(i)">Eliminar</button><br><br>
+    </div>
+    <input type="text" [(ngModel)]="NuevoAutor" [ngModelOptions]="{standalone: true}" required minlength="3" maxlength="200" placeholder="Nuevo Autor">
+    <button type="button" (click)="agregarAutor()">Agregar Autor</button><br><br>
+
+    <label for="fPublicacion">Fecha de publicación:</label>
+    <input type="date" id="fPublicacion" [(ngModel)]="fPublicacion" name="fPublicacion" required (change)="validarFecha()" placeholder="Fecha publicación">
+    <div *ngIf="!esFechaValida" class="error-message">{{ mensajeError }}</div>
+
+    <label for="editorial">Editorial:</label>
+    <input type="text" id="editorial" [(ngModel)]="Editorial" name="editorial" required minlength="3" maxlength="50" placeholder="Editorial">
+
+    <label class="lCategoria" for="categoria">Categoría:</label>
+    <select id="categoria" [(ngModel)]="Categoria" name="categoria" required class="categoria">
+        <option *ngFor="let categoria of categorias" [value]="categoria.nombre">{{ categoria.nombre }}</option>
+    </select>
+
+    <button id="btnGuardar" class="btnGuardar" type="submit" [disabled]="!altaForm.valid || Autores.length === 0 || !esFechaValida">Guardar libro</button>
+</form>
+
+
+</div>
+
+
+      <!-- Pie de pagina -->
+      <footer style="background-color: #2A4DBD; color: white; text-align: center; padding: 10px; margin-top: 5%;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Universidad_Tecnológica_del_Norte_de_Guanajuato_%28UTNG%29_LOGO.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+        <br>
+        <br>
+        <div class="text-center">
+            <a href="/mapa" class="btn btn-primary btn-lg">Mapa del Sitio</a>
+        </div>
+        <br><div>&copy; 2024 Universidad Tecnológica del Norte de Guanajuato (UTNG). Todos los derechos reservados.</div>
+        <div>Sitio web oficial: <a href="http://www.utng.edu.mx" style="text-decoration: none; color: white;">www.utng.edu.mx</a></div>
+        <div>Dirección: Av. Educación Tecnológica #34, Fracc. Universidad, C.P. 37800, Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato.</div>
+        <div>Teléfono: <a href="tel:+524181825500" style="text-decoration: none; color: white;">+52 (418) 182 5500 </a> | Email: <a href="utng_doloreshidalgo@utng.edu.mx" style="text-decoration: none; color: white;">utng_doloreshidalgo&#64;utng.edu.mx</a></div>
+        <div>Síguenos en nuestras redes sociales: <a href="https://www.facebook.com/UTNGDOLORESHIDALGO-222209577812067/app/109849065805705/" target="_blank" style="text-decoration: none; color: white;">UTNGDOLORESHIDALGO</a></div><br><br>
+    </footer>
+  </div> <!-- Cierra div de conyenido principal -->
+
+</body>
+</html>

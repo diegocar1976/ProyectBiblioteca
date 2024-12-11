@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script src="menu.component.css" type="styles"></script>
+</head>
+<body class="pagina-oculta">
+  
+  <!-- Logo inicio -->
+  <nav *ngIf="showNavbar" class="navbar bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/inicio-usuario"><img src="https://www.utng.edu.mx/assets/principal/logoutng.webp" alt=""></a>
+
+<!-- Botón de usuario -->
+<div *ngIf="showButton && userData" class="dropdown position-fixed" style="right: 20%; top: 8%;">
+  <button class="btn btn-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <!-- Mostrar nombre completo del usuario en mayúsculas al lado izquierdo del icono -->
+    <span class="user-info">
+      <span style="text-transform: uppercase;">{{ userData.nombre }} {{ userData.apellido }}</span>
+      <i style="margin-left: 5%;" class="fas fa-user"></i>
+    </span>    
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Numero de control: {{userData.numControl}}</a></li>
+    <li><a class="dropdown-item" href="#">Correo: {{userData.correo}}</a></li>
+    <li><a class="dropdown-item" href="#">Telefono: {{userData.telefono}}</a></li>
+    <li>
+      <a class="dropdown-item" (click)="actualizar()">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <span>Actualizar datos</span>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar sesión</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Fin del boton de usuarioo -->
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+      
+      <!-- Cuadro de menú -->
+      <button class="navbar-toggler" *ngIf="showButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: white; margin-bottom: -3%; margin-right: 2%;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #00A887;">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: white;" >Menú</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="background-color: white;"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="dropdown-item" href="inicio-usuario" aria-current="page"  style="color: white; font-size: 17px;">Inicio</a>
+            </li>
+
+            <!-- Primer dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                Gestionar libros
+              </a>
+              <ul class="dropdown-menu" style="background-color: #00A887; border: none;">
+                <li><a class="dropdown-item" href="lista" style="color: white; background-color: #00A887; ">Lista de libros</a></li>
+                <li *ngIf="userData && (userData.rol === 'bibliotecario' || userData.rol === 'administrador')"><a class="dropdown-item" href="alta" style="color: white; background-color: #00A887; ">Alta libro</a></li>
+                <li *ngIf="userData && (userData.rol === 'bibliotecario' || userData.rol === 'administrador')"><a class="dropdown-item" href="actualizar" style="color: white; background-color: #00A887;">Actualizar/Eliminar libro</a></li>
+              </ul>
+            </li>
+
+            <!-- Segundo dropdown -->
+            <li class="nav-item dropdown" *ngIf="userData && (userData.rol === 'bibliotecario' || userData.rol === 'administrador')">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                Gestionar ejemplares
+              </a>
+              <ul class="dropdown-menu" style="background-color: #00A887; border: none;">
+                <li><a class="dropdown-item" href="gestionEjemplares" style="color: white; background-color: #00A887;">Búsqueda de ejemplares</a></li>
+              </ul>
+            </li>
+
+            <!-- Tercer dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                Gestión de prestamos y sanciones
+              </a>
+              <ul class="dropdown-menu" style="background-color: #00A887; border: none;">
+                <li *ngIf="userData && (userData.rol === 'bibliotecario' || userData.rol === 'administrador' || userData.rol === 'estudiante' || userData.rol === 'profesor')"><a class="dropdown-item" href="prestamo" style="color: white; background-color: #00A887;">Alta de prestamo</a></li>
+                <li *ngIf="userData && (userData.rol === 'bibliotecario' || userData.rol === 'administrador')"><a class="dropdown-item" href="editar" style="color: white; background-color: #00A887;" >Actualizar/Eliminar prestamo</a></li>
+                <li *ngIf="userData && (userData.rol === 'bibliotecario' || userData.rol === 'administrador' || userData.rol === 'estudiante' || userData.rol === 'profesor')"><a class="dropdown-item" href="misPrestamos" style="color: white; background-color: #00A887;">Mis prestamos</a></li>
+              </ul>
+            </li>
+
+            <!-- Cuarto dropdown -->
+            <li class="nav-item dropdown" *ngIf="userData && userData.rol === 'administrador'">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                Gestión de usuarios
+              </a>
+              <ul class="dropdown-menu" style="background-color: #00A887; border: none;">
+                <li><a class="dropdown-item" href="usuarios" style="color: white; background-color: #00A887;">Usuarios</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio usuario</title>
+    <style>
+        body {
+    background-image: url(https://c.wallhere.com/photos/bb/a3/4272x2848_px_books_Ernest_Hemingway_monochrome_Oscar_Wilde-525957.jpg!d);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Ajusta el último valor para cambiar la opacidad */
+    min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% del viewport height */
+    min-width: 100vw; /* Establece el ancho mínimo del cuerpo al 100% del viewport width */
+}
+
+
+        .cuadro {
+            height: 300px; /* Ajusta la altura */
+            width: 300px; /* Ajusta el ancho */
+            text-align: center;
+            padding: 20px; /* Ajusta el relleno */
+            margin: 20px; /* Ajusta el margen */
+            border-radius: 10px;
+            background-size: cover;
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px; /* Ajusta el tamaño de fuente */
+            font-weight: bold;
+            padding: 10%;
+        }
+
+
+        .cuadro:hover {
+            transform: scale(1.05);
+        }
+
+        .container {
+            margin-top: 10%;
+            text-align: center;
+            display: flex; /* Usa display flex para centrar horizontalmente */
+            justify-content: center; /* Centra horizontalmente */
+            margin-left: 5%;
+        }
+
+
+        a {
+        text-decoration: none;
+        color: inherit; /* Para heredar el color del texto del contenedor */
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <!-- Primer conjunto de cuadros -->
+            <div class="col-md-4 mb-3" *ngIf="userData && (userData.rol === 'administrador' || userData.rol === 'bibliotecario')">
+                <a href="/alta">
+                    <div class="cuadro card" style="background-image: url(https://wallpapers.com/images/hd/old-books-in-a-pile-paqzbm1wimbshanh.jpg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Alta de Libro</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="userData && (userData.rol === 'administrador' || userData.rol === 'bibliotecario' || userData.rol === 'estudiante' || userData.rol === 'profesor')">
+                <a href="/lista">
+                    <div class="cuadro card" style="background-image: url(https://www3.gobiernodecanarias.org/noticias/wp-content/uploads/2022/12/Libros.jpg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista de libros</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="userData && (userData.rol === 'administrador' || userData.rol === 'bibliotecario')">
+                <a href="/actualizar">
+                    <div class="cuadro card" style="background-image: url(https://s0.smartresize.com/wallpaper/980/524/HD-wallpaper-opened-book.jpg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Actualizar/Eliminar Libro</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="/gestionEjemplares" *ngIf="userData && userData.rol === 'administrador'">
+                    <div class="cuadro card" style="background-image: url(https://w.forfun.com/fetch/e7/e7bfc1edebf545897f7d266883c4a7f0.jpeg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Buscar Ejemplares</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Segundo conjunto de cuadros -->
+            <div class="col-md-4 mb-3" *ngIf="userData && (userData.rol === 'administrador' || userData.rol === 'bibliotecario' || userData.rol === 'estudiante' || userData.rol === 'profesor')">
+                <a href="/prestamo">
+                    <div class="cuadro card" style="background-image: url(https://e0.pxfuel.com/wallpapers/356/939/desktop-wallpaper-books.jpg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Alta de Préstamo</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="userData && (userData.rol === 'administrador' || userData.rol === 'bibliotecario')">
+                <a href="/editar">
+                    <div class="cuadro card" style="background-image: url(https://wallpapercave.com/wp/wp4430524.jpg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Eliminar/Actualizar Préstamo</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="userData && userData.rol === 'administrador'">
+                <a href="/usuarios">
+                    <div class="cuadro card" style="background-image: url(https://images.unsplash.com/photo-1499257398700-43669759a540?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29uYSUyMGxleWVuZG98ZW58MHx8MHx8fDA%3D);">
+                        <div class="card-body">
+                            <h5 class="card-title">Usuarios</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="userData && (userData.rol === 'administrador' || userData.rol === 'bibliotecario' || userData.rol === 'estudiante' || userData.rol === 'profesor')">
+                <a href="/misPrestamos">
+                    <div class="cuadro card" style="background-image: url(https://e0.pxfuel.com/wallpapers/356/939/desktop-wallpaper-books.jpg);">
+                        <div class="card-body">
+                            <h5 class="card-title">Mis prestamos</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

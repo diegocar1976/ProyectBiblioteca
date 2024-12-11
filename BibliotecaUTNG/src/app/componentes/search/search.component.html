@@ -1,0 +1,31 @@
+<div class="search-container">
+  <div class="grid text-center" style="row-gap: 0;">
+    <div class="g-col-6">
+      <div class="input-group">
+        <input class="search-input form-control me-2" type="search" [(ngModel)]="searchTerm"
+          (keyup)="showSearchOptions()" placeholder="Buscar">
+        <button class="btn btn-outline-success" type="button" (click)="search()">
+          <i class="fa-solid fa-magnifying-glass" id="icono"></i>
+        </button>
+        <!-- Nuevo botón con el micrófono -->
+        <button class="btn btn-outline-secondary" type="button" (click)="startVoiceRecognition()">
+          <i class="fa-solid fa-microphone" id="microfono"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #icono {
+    color: white;
+    /* Color blanco para el icono de la lupa */
+    padding: 5px;
+  }
+
+  #microfono {
+    color: white;
+    /* Color blanco para el icono del micrófono */
+    padding: 5px;
+  }
+</style>

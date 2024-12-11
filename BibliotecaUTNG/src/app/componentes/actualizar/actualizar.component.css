@@ -1,0 +1,94 @@
+body {
+    background-image: url(https://images.pexels.com/photos/2898170/pexels-photo-2898170.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop);
+    background-size: cover; /* Ajusta la imagen de fondo para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-position: center; /* Centra la imagen de fondo */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+    height: 100vh; /* Establece la altura del cuerpo al 100% de la altura de la ventana del navegador */
+  }
+  
+  .container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 0%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .botones {
+    display: flex;
+    justify-content: center; /* Alinea los elementos en el centro horizontal */
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+  }
+
+  .separacion-botones {
+    margin-left: 10px;
+}
+
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+  
+  
+  
+    h1{
+      padding-top: 5%;
+      padding-bottom: 3%;
+      text-align: center;
+      color: white;
+    }
+  
+  /* Estilo para los campos de entrada */
+  .container input[type="text"],
+  .container input[type="password"] {
+      padding-left: 30px; /* Ajusta el espacio a la izquierda para que el texto no se superponga con el icono */
+  }
+  
+  
+    .error-message {
+      color: #dc3545; /* Color rojo para el mensaje de error */
+      font-size: 0.85rem; /* Tamaño de fuente más pequeño */
+      margin-top: 0.25rem; /* Espacio superior reducido */
+    }
+  
+    /* Estilos para el bton de inicio de sesion de Google*/
+    .google-login-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-left: 15%;
+    }
+    
+    .google-login-button:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .google-icon {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .formulario label {
+      text-align: left;
+      color: black;
+      font-weight: bold; /* Agregar negrita */
+  }
+  
+
